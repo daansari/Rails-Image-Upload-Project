@@ -1,0 +1,19 @@
+<div class="authform">
+	<h2>Add project</h2>
+
+	<%= simple_form_for(@project, :url => projects_path, :html => { multipart: true}) do |f| %>
+	  <%= f.error_notification %>
+
+	  <div class="form-inputs">
+	    <%= f.input :name, :required => true, :autofocus => true %>
+        
+        <%= f.input :attachment, as: :file, :required => true %>
+	  </div>
+
+	  <div class="form-actions">
+	    <%= f.button :submit, "Create" %>
+	  </div>
+
+	 	<%= link_to "Back", projects_path %>
+	<% end %>
+</div>

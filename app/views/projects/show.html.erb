@@ -1,0 +1,22 @@
+<br><br>
+<%= link_to "Back", projects_path, :class => "button round" %>
+
+<h2>Detail</h2>
+<table class="custom-table">
+	<thead>
+		<th>Image</th>
+		<th>Name</th>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td>
+				<% if @project.attachment? %>
+					<%= image_tag @project.attachment.url(:small) %>
+				<% end %>
+			</td>
+			<td><%= @project.name %></td>
+			
+		</tr>
+	</tbody>
+</table>

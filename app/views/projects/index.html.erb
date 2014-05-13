@@ -1,0 +1,36 @@
+<h2>Projects:</h2>
+<!-- <i class="fi-plus"></i> -->
+
+<table class="custom-table">
+	<thead>
+		<th>Image</th>
+		<th>URL</th>
+		<th>Name</th>
+		<th>Location</th>
+		<th>Timestamp</th>
+		<th>Modify</th>
+	</thead>
+
+	<tbody>
+		<% @projects.each do |project| %>
+			<tr>
+				<td>
+					<% if project.attachment? %>
+						<%= image_tag project.attachment.url(:small) %>
+					<% end %>
+				</td>
+				<td>
+					<% if project.attachment? %>
+						<%= project.attachment.url %>
+					<% end %>
+				</td>
+				<td><%= project.name %></td>
+				<td><%= project.p_latitude %>, <%= project.p_longitude %></td>
+				<td><%= project.p_formatted_timestamp %></td>
+				<td>
+					<%= link_to "Detail", project_path(project) %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,23 @@
+<div class="authform">
+  <h2>Edit <%= @project.name %></h2>
+   
+  <%= simple_form_for @project, url: project_path(@project), :html => { :method => :put } do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name, :required => true, :autofocus => true %>
+      
+      <% if f.object.attachment? %>
+        <%= link_to f.object.attachment_file_name, f.object.attachment.url %>
+        <%= f.input :remove_attachment, as: :boolean, label: "Remove attachment" %>
+      <% end %>
+      <%= f.input :attachment, as: :file %>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Update" %>
+      </div>
+    </div>
+
+    <%= link_to "Back", project_path(@project) %>
+  <% end %>
+</div>
